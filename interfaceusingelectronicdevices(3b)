@@ -1,0 +1,90 @@
+package p1;
+interface power_management{
+	void poweron();
+	void poweroff();
+	boolean ispoweron();
+}
+class electronic_devices implements power_management{
+	boolean state=false;
+	@Override
+	public void poweron() {
+		state=true;
+		System.out.println("electronic device is turnes on");
+	}
+	@Override
+	public void poweroff() {
+		state=false;
+		System.out.println("electronic device is turnes off");
+	}
+	@Override
+	public boolean ispoweron(){
+		return state;
+	}
+}
+class smart_phone1 extends electronic_devices{
+	public void poweron() {
+		state=true;
+		System.out.println("smart phone is turned on");
+	}
+	@Override
+	public void poweroff() {
+		state=false;
+		System.out.println("smart phome is turned off");
+	}
+	void
+	dial() {
+		if(ispoweron())
+			System.out.println("call my friend using smart phone");
+		else
+			System.out.println("hey idiot,first turn on the phone");
+	}
+}
+class laptop extends electronic_devices{
+	public void poweron() {
+		state=true;
+		System.out.println("laptop is turnes on");
+	}
+	@Override
+	public void poweroff() {
+		state=false;
+		System.out.println("laptop is turned off");
+	}
+	void access_internet() {
+		if(ispoweron())
+			System.out.println("accessing internet using laptop");
+		else
+			System.out.println("please turn on laptop");
+		}
+	}
+class tablet extends electronic_devices{
+	public void poweron() {
+		state=true;
+		System.out.println("tablet is turned on");
+	}
+	@Override
+	public void poweroff() {
+		state=false;
+		System.out.println("tablet off");
+	}
+	void takephoto() {
+		if(ispoweron())
+			System.out.println("taking photo using tablet");
+		else
+			System.out.println("please turn on tablet");
+	}
+}
+public class Lab_Program3b {
+	public static void main(String[] args) {
+		smart_phone1 oneplus=new smart_phone1();
+		oneplus.poweron();
+		oneplus.dial();
+		oneplus.poweroff();
+		oneplus.dial();
+		System.out.println();
+		tablet ipad=new tablet();
+		ipad.poweron();
+		ipad.takephoto();
+		ipad.poweroff();
+		ipad.takephoto();
+	}
+}
