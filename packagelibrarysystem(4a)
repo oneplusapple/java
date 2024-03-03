@@ -1,0 +1,44 @@
+package library;
+public class Book {
+   private String title=null;
+   public Book(String title)
+   {
+	   this.title=title;
+	   System.out.println("The book titled "+this.title+" is added to the library");
+   }
+   public String getTitle()
+   {
+	   return title;
+   }
+}
+
+package patron;
+import library.Book;
+public class Patron 
+{
+	public String name=null;
+	Patron(String name)
+	{
+		this.name=name;
+		System.out.println("New patron "+this.name+" is added to the database");
+	}
+	void borrow_books(Book b)
+	{
+		System.out.println(this.name+" borrowed "+b.getTitle());
+	}
+}
+
+package patron;
+import library.Book;
+public class Demo_Library_Management_System {
+
+	public static void main(String[] args) {
+		Book b1=new Book("AR sir's notes");
+		Book b2=new Book("Little champs");
+		Patron p1=new Patron("Chandana");
+		Patron p2=new Patron("Deeksha");
+		p1.borrow_books(b1);
+		p1.borrow_books(b2);
+	
+	}
+}
