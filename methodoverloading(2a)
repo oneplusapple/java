@@ -1,0 +1,45 @@
+package p1;
+class phone
+{
+	void dial() {
+		System.out.println("Calling frinend using this number through a regular phone");
+	}
+}
+class camera_phone extends phone {
+	void dial(String n) {
+		System.out.println("calling"+n+"using camera phone");
+	}
+	void take_photo() {
+		System.out.println("Take photo using camera phone");
+	}
+}
+class smart_phone extends camera_phone{
+	void dial(String n , boolean b) {
+		 if(b) {
+			 System.out.println("calling"+n+"through video call");
+		 }
+		 else {
+			 System.out.println("calling"+n+"through normal voice call");
+		 }
+	 }
+	 void acces_internet() {
+		 System.out.println("Accessing internet for WWW");
+		 
+	 }
+ }
+public class Lab_Program2a {
+
+	public static void main(String[] args) {
+		phone p=new phone();
+		p.dial();
+		
+		camera_phone c=new camera_phone();
+		c.dial();
+		c.dial("Skanda");
+		c.take_photo();
+		
+		smart_phone s=new smart_phone();
+		s.dial("Sknada ",true);
+		s .acces_internet();
+	}
+}
