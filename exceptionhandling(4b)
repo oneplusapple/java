@@ -1,0 +1,42 @@
+package p1;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class Lab_Program4b {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int c=0,a=0,b=0;
+		try {
+			while(true) {
+				try {
+					System.out.println("Enter the numerator:");
+					a=s.nextInt(); 
+					break;
+				}
+				catch(InputMismatchException f) {
+					System.out.println("Give only integer input for numerator");
+					s.nextLine();
+				}
+			}
+			while(true){
+				try {
+					System.out.println("Enter the denominator:");
+					b=s.nextInt();
+					c=a/b;
+					break;
+				}
+				catch(InputMismatchException f) {
+					System.out.println("Give only integer input for denominator");
+					s.nextLine();
+				}
+				catch(ArithmeticException f) {
+					System.out.println("The denominator value should be greater than zero");
+					s.nextLine();
+				}
+			}
+		}
+		finally{
+			s.close();
+		}
+		System.out.println("c="+c);
+	}
+}
