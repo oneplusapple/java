@@ -1,0 +1,72 @@
+package p1;
+class vehicles
+{
+	void start() 
+	{
+		System.out.println("vehicle started");
+	}
+	void stop() {
+		System.out.println("vehicle stopped");
+	}
+}
+class car extends vehicles
+{
+	@Override
+	void start() 
+	{
+		System.out.println("car started");
+	}
+	@Override
+	void stop() {
+		System.out.println("car stopped");
+	}
+	void accelerate() {
+		System.out.println("accelerating in a car");
+	}
+}
+class sports_car extends vehicles{
+	@Override
+	void start() {
+		System.out.println("sports car started");
+	}
+	@Override
+	void stop() {
+		System.out.println("sports car stopped");
+	}
+	void turbo() {
+		System.out.println("Sports turbo boosting in my sports car");
+	}
+}
+class truck extends vehicles{
+	@Override
+	void start() {
+		System.out.println("truck started");
+	}
+	@Override
+	void stop() {
+		System.out.println("truck stopped");
+	}
+	void load_cargo() {
+		System.out.println("load cargo into the truck");
+	}
+}
+
+public class Lab_Program3a{
+
+	public static void main(String[] args) {
+		car c1=new car();
+		c1.start();
+		c1.accelerate();
+		c1.stop();
+				
+		sports_car s1=new sports_car();
+		s1.start();
+		s1.turbo();
+		s1.stop();
+		
+		truck t1=new truck();
+		t1.start();
+		t1.load_cargo();
+		t1.stop();
+	}
+}
