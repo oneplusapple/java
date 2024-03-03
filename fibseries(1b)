@@ -1,0 +1,56 @@
+package p1;
+
+import java.util.Scanner;
+
+public class Lab_Program_1b {
+	static int even_sum=0,odd_product=1;
+	static double sum=0,avg=0;
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the value of n to find largest prime in fibonacci series");
+		int n=s.nextInt();
+		int lp=is_largest_Prime_in_Fib_series(n);
+		System.out.println("Even sum of fibonacci series is:"+even_sum);
+		System.out.println("Odd product of fibonacci series is:"+odd_product);
+		if(lp!=0)
+			System.out.println("Largest Prime in Fibonacci series is:"+lp);
+		else
+			System.out.println("Prime number is not found");
+		System.out.println("Average of fibonacci series is:"+avg);
+	}
+	private static int is_largest_Prime_in_Fib_series(int n) {
+		int f0=0,f1=1,f2=0,np=0,count=0;
+		while(count<n) {
+			count++;
+			sum+=f2;
+			if(f2%2==0)
+				even_sum+=f2;
+			else
+				odd_product*=f2;
+			if(isPrime(f2))
+				np=f2;
+			f0=f1;
+			f1=f2;
+			f2=f0+f1;
+		}
+		avg=sum/count;
+		return np;
+	}
+	public static boolean isPrime(int f2)
+	{
+		int count=0;
+		for(int i=2;i<=f2/2;i++)
+		{
+			if(f2%i==0)
+			{
+				count++;
+				break;
+			}
+		}
+		if(count==0)
+			return true;
+		else
+			return false;
+	}
+}
