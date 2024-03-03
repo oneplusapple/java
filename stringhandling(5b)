@@ -1,0 +1,20 @@
+package p1;
+import java.util.Scanner;
+public class Lab_Program_5b {
+    public static void main(String[] args) {
+        Scanner Scn = new Scanner(System.in);
+        System.out.println("Enter the first string :");
+        String S1 = Scn.next();
+        System.out.println("Enter the second string : ");
+        String S2 = Scn.next();
+        String S3 = new String(S1.concat(S2));
+        System.out.println("The concatenation string is :" + S3);
+        System.out.println("Extract portion from concatenated string is :" + S3.substring(3));
+        if (S1.equals(S2)) {
+            System.out.println("Strings you have entered are equal ");
+        } else {
+            System.out.println("Strings you have entered are not equal");
+        }
+        Scn.close();
+    }
+}
