@@ -1,0 +1,19 @@
+package p1;
+import java.math.*;
+class Shape_A_C{
+	Shape_A_C(int r){
+		System.out.println("A circle is created");
+		System.out.println("Area of circle which was created is "+(Math.PI*r*r)+" cm2");
+	}
+	Shape_A_C(int l,int b){
+		System.out.println("A rectangle is created");
+		System.out.println("Area of rectangle which was created is "+(l*b)+"cm2");
+	}
+}
+public class Lab_Program2b {
+
+	public static void main(String[] args) {
+		new Shape_A_C(4);
+		new Shape_A_C(3,4);
+	}
+}
