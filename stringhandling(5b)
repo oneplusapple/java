@@ -1,20 +1,49 @@
 package p1;
-import java.util.Scanner;
-public class Lab_Program_5b {
+import java.util.Random;
+class RandomNumbers implements Runnable{
+	@Override
+	public void run() {
+		for(int i=0;i<10;i++) {
+			Random rn=new Random();
+			int num=rn.nextInt(10);
+			System.out.println(num);
+			new Sq_Of_Random(num);
+			new Cube_Of_Random(num);
+			try {
+				Thread.sleep(1000);
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+class Sq_Of_Random implements Runnable{
+	int num;
+	Sq_Of_Random(int num){
+		this.num=num;
+		new Thread(this).start();
+	}
+	@Override
+	public void run() {
+		num=num*num;
+		System.out.println(num);
+	}
+}
+class Cube_Of_Random implements Runnable{
+	int num;
+	Cube_Of_Random(int num){
+		this.num=num;
+		new Thread(this).start();
+	}
+	@Override
+	public void run() {
+		num=num*num*num;
+		System.out.println(num);
+	}
+}
+public class Lab_Program_5a {
     public static void main(String[] args) {
-        Scanner Scn = new Scanner(System.in);
-        System.out.println("Enter the first string :");
-        String S1 = Scn.next();
-        System.out.println("Enter the second string : ");
-        String S2 = Scn.next();
-        String S3 = new String(S1.concat(S2));
-        System.out.println("The concatenation string is :" + S3);
-        System.out.println("Extract portion from concatenated string is :" + S3.substring(3));
-        if (S1.equals(S2)) {
-            System.out.println("Strings you have entered are equal ");
-        } else {
-            System.out.println("Strings you have entered are not equal");
-        }
-        Scn.close();
+        Runnable r1=new RandomNumbers();
+        new Thread(r1).start();
     }
 }
